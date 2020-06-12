@@ -4,8 +4,11 @@ const pricing = require('pricing');
 module.exports = {
   start: async () => {
 
-    const price = await pricing.getBuyPrice();
-    console.log(price)
+    const buyPrice = await pricing.getBuyPrice();
+    const sellPrice = await pricing.getSellPrice();
+    
+    console.log(`Buy price: ${buyPrice.data.amount}`)
+    console.log(`Sell price: ${sellPrice.data.amount}`)
   
   }
 }

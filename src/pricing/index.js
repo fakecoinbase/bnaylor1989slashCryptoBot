@@ -10,9 +10,17 @@ var client = new coinbase.Client({'apiKey': apiKey,
 
 module.exports = {
 
+    currency: 'BTC-USD',
     getBuyPrice: async () => new Promise((resolve, reject) => {
-        const currencyPair = 'BTC-GBP'
+        const currencyPair = this.currency
         client.getBuyPrice({ currencyPair }, (err, obj) => {
+            err ? reject(err) : resolve(obj)
+        })
+    }),
+
+    getSellPrice: async () => new Promise((resolve, reject) => {
+        const currencyPair = this.currency
+        client.getSellPrice({ currencyPair }, (err, obj) => {
             err ? reject(err) : resolve(obj)
         })
     })
