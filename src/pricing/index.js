@@ -21,7 +21,8 @@ module.exports = {
         const actions = [this.getSpotPrice(), this.getBuyPrice(),
           this.getSellPrice()]
     
-        const results = await Promise.all(actions)
+        const results = await Promise.all(actions).catch((e) => { 
+            console.error(e.message) })
         const ordering = ['spot', 'buy', 'sell']
     
         const dict = {}
