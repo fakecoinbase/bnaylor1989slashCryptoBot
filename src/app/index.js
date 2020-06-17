@@ -21,7 +21,6 @@ const mainLoop = async () => {
 
 module.exports = {
 
-
   start: async () => {
     
     await database.connect()
