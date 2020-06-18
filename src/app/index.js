@@ -11,7 +11,9 @@ const mainLoop = async () => {
   try {
     const prices = await pricing.getPrices();
     const price = await Price.create(prices)
-    console.log("Price obtained")
+
+    console.log("----------");
+    console.log(`Price obtained - ${Date()}`)
     await Trading.onPrices(price)
   } catch (err) {
     console.log(err)
